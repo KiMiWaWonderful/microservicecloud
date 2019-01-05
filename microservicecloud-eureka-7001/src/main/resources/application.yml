@@ -1,0 +1,27 @@
+server:
+  port: 7001
+#spring:
+#  security:
+#    user:
+#      name: kimi
+#      password: 233
+eureka:
+  instance:
+    hostname: localhost
+    #hostname: eureka7001.com #eureka服务端的实例名称
+  client:
+    registerWithEureka: false     #false表示不向注册中心注册自己。
+    fetchRegistry: false     #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+        #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址（单机）。
+      #defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+#info:
+#  app:
+#    name: kimi-microservicecloud
+##  company:
+##    name: www.kimi.com
+#  build:
+#    artifactId: $project.artifactId$
+#    version: $project.version$
